@@ -1,2 +1,8 @@
 # MNIST_Assignment4
-This repository consists files for predicting number. Trainable Parameters under 15k
+This repository consists files for predicting number. Trainable Parameters under 15k.
+First i had started with basic architecture i.e. vanilla architecture. This architecture includes all the 3 X 3 kernels and one 2 X 2 Max pooling layer. The accuracy this architecture gives is about 99.18% and validation accuracy is 99.06%. But the parameter excedding the constraint of 15k. Total trainable parameters here are 17194.
+So my goal is reducing the total trainable parameters.So in second try this architecture includes 1X1 convolution layer and another 2 X 2 Max pooling layer. This reduces Total Trainable parameters to 12618.But this reduces the validation accuracy. Now, its overfitting the model.
+To reduce the gap between the training accuracy and validation accuracy I introduced the Drop out. Drop out has been added into model after the 1 X 1 convolution and after the convolution layer. By adding this it reduces the training accuracy because during training 10% of neurons from one layer and 20% of neurons from another layer is not considered during training.
+This reduces the training accuracy as all neurons from those layers are not able to pass the information to next layer. But this reduces the gap between the training and validation accuracy.
+Now, as gap is reduced it is time to increase the batch size and number of epochs to increase the training accuracy. I had added batch size 64 and Batch Size 128 and increased the epochs. So now i am getting good training accuracy and differece between training and validation accuracy gets reduced to 0.0001.
+Now the model is performing very good within the constraint.
